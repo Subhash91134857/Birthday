@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            overflow: hidden;
+            /* position: relative; */
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.3);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            width: 95%;
+            max-width: 400px;
+            margin: 20px auto;
+            transform-style: preserve-3d;
+            animation: cardFloat 3s ease-in-out infinite, neonGlow 3s infinite alternate;
+            position: relative;
+        }
+
+        @keyframes neonGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 20, 147, 0.5),
+                    0 0 20px rgba(255, 20, 147, 0.4),
+                    0 0 30px rgba(255, 20, 147, 0.3);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.8),
+                    0 0 30px rgba(255, 0, 0, 0.6),
+                    0 0 40px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        @keyframes cardFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .image-card {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .nav-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .nav-dot.active {
+            transform: scale(1.3);
+            background-color: #ff1493;
+        }
+
+        .memory-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3em;
+            color: #FF1493;
+            margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .wish-button {
+            background: linear-gradient(45deg, #FF1493, #FF69B4);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: buttonPulse 2s infinite;
+        }
+
+        @keyframes buttonPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .wish-button:active {
+            transform: scale(0.95);
+        }
+
+        .floating-heart {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: #FF69B4;
+            clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
+            animation: floatHeart 5s linear infinite, swayHeart 2s ease-in-out infinite;
+            opacity: 0.8;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-150vh) translateX(calc(-50vw + 100px));
+                opacity: 0;
+            }
+        }
+
+        @keyframes swayHeart {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(10deg);
+            }
+        }
+
+        .floating-balloon {
+            position: fixed;
+            width: 20px;
+            height: 30px;
+            background-color: #FF4500;
+            border-radius: 50%;
+            animation: floatBalloon 7s linear infinite, swayBalloon 3s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes floatBalloon {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-150vh) translateX(calc(50vw - 100px));
+                opacity: 0;
+            }
+        }
+
+        @keyframes swayBalloon {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        .balloon-string {
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background-color: #333;
+            bottom: -50px;
+            left: calc(50% - 1px);
+        }
+
+        /* Hinglish Messages */
+        /* .love-messages {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        } */
+
+        .message {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em;
+            color: #FF1493;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .blurred {
+            filter: blur(5px);
+        }
+
+        #message-card-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+            /* Initially hidden */
+            opacity: 0;
+            transition: opacity 0.5s ease, visibility 0s 0.5s;
+        }
+
+        #message-card-container.hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        #message-card-container:not(.hidden) {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .message-card {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-20px);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+
+        .close-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #FF6347;
+            /* Tomato color */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background-color: #e5533e;
+            transform: scale(1.05);
+        }
+
+
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            .message-card {
+                padding: 20px 30px;
+                max-width: 90%;
+            }
+
+            #show-message-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+
+
+        @media (max-width: 400px) {
+            .message-card {
+                padding: 15px 20px;
+                max-width: 90%;
+            }
+
+            #show-message-button {
+                font-size: 12px;
+                padding: 8px 18px;
+            }
+        }
+
+        #message-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        #message-list p {
+            font-size: 16px;
+            margin: 10px 0;
+            line-height: 1.5;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloons-container"></div>
+
+    <div class="card-container" id="main_card">
+        <div class="main-card">
+            <div class="title">Happy Birthday My Love! 💖</div>
+
+            <div class="image-card">
+                <img id="slider-image" src="/api/placeholder/400/400" alt="Our Memories">
+            </div>
+
+            <div class="nav-dots">
+
+            </div>
+
+            <div class="content">
+                <div class="memory-text">
+                    Tumhare bina life adhuri si hai... ✨
+                </div>
+
+                <div class="message">
+                    <p>Meri pyaari si DharamPatni Ji,</p>
+                    <p>Tum meri zindagi ka sabse khoobsurat ehsaas ho ❤️</p>
+                    <p>Har pal tumhare saath special hai,<br>
+                        Har lamha tumhari yaad se khubsurat hai 💫</p>
+                </div>
+                <button class="wish-button" onclick="showLoveMessage()">Special Message 💝</button>
+            </div>
+        </div>
+        <div id="message-card-container" class="hidden">
+            <div class="message-card">
+                <h2>Special Messages 💖</h2>
+                <div id="message-list">
+
+                </div>
+                <button class="close-button" onclick="closeMessageCard()">Close</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 5 + 's';
+            document.getElementById('balloons-container').appendChild(heart);
+
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'floating-balloon';
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.animationDuration = Math.random() * 3 + 7 + 's';
+
+            const string = document.createElement('div');
+            string.className = 'balloon-string';
+
+            balloon.appendChild(string);
+            document.getElementById('balloons-container').appendChild(balloon);
+
+            setTimeout(() => balloon.remove(), 7000);
+        }
+
+        setInterval(createHeart, 400);
+        setInterval(createBalloon, 600);
+
+        // Image slider
+
+        const sliderImage = document.getElementById('slider-image');
+        const navDotsContainer = document.querySelector('.nav-dots'); // Get the container for the dots
+
+        // Array of image sources for the slider
+        const images = [
+            "./images/H.png",
+            "./images/H1.png",
+            "./images/H2.png",
+            "./images/H3.png",
+            "./images/H4.png",
+            "./images/H5.jpg",
+            "./images/H6.png",
+            "./images/H7.jpg",
+            "./images/H8.jpg",
+            "./images/H9.jpg",
+            "./images/H10.jpg",
+
+        ];
+
+        let currentIndex = 0;
+
+        // Function to generate dots dynamically
+        function generateDots() {
+            // Clear existing dots
+            navDotsContainer.innerHTML = '';
+
+            // Create and append a dot for each image
+            images.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('nav-dot');
+                if (index === currentIndex) {
+                    dot.classList.add('active'); // Set the first dot as active
+                }
+
+                // Add click event listener to each dot
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider(currentIndex);
+                });
+
+                navDotsContainer.appendChild(dot);
+            });
+        }
+
+        // Function to update the image and active dot
+        function updateSlider(index) {
+            if (index < 0 || index >= images.length) {
+                console.error(`Invalid index: ${index}. Must be between 0 and ${images.length - 1}.`);
+                return;
+            }
+
+            // Fade out the image
+            sliderImage.style.opacity = 0;
+
+            // Wait for the fade-out to complete, then update the image
+            setTimeout(() => {
+                // Update the image source
+                sliderImage.src = images[index];
+
+                // Fade the image back in
+                sliderImage.style.opacity = 1;
+
+                // Update the active dot
+                const dots = document.querySelectorAll('.nav-dot');
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+            }, 500); // The timeout duration matches the fade-out duration
+        }
+
+        // Initialize the slider and generate dots
+        generateDots();
+        updateSlider(currentIndex);
+
+        // Auto-slide the images every 5 seconds
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateSlider(currentIndex);
+        }, 5000);
+
+
+        function showLoveMessage() {
+            // Array of love messages
+            const messages = [
+                "Meri duniya tumse hi roshan hai, tum ho toh sab kuch hai. 💖",
+                "Meri jaan tumse hi toh hai, tum ho meri har ek khushi ki wajah. 🌹",
+                "Dil se tumhein chahna, yeh meri zindagi ka sabse pyara kaam hai. ❤️",
+                "Tumhari muskaan se meri duniya roshan hoti hai, Happy Birthday meri jaan! 🎉",
+                "Tere bina mera jeevan adhura hai, Happy Birthday meri pyaari! 💫🎈",
+                "Tumhare saath har pal special hai, tumse milke meri zindagi complete ho gayi. ✨",
+                "Tumhari aankhon mein kuch baat hai, jo mere dil ko shanti de deti hai. 💫",
+                "Kismat ka khel bhi ajeeb hai, mujhe tumhe hi milna tha. 💕",
+                "Har pal tumhare saath guzarne ki dua karta hoon, tum ho meri har ek subah ki roshni. 🌞",
+                "Meri har ek zindagi ki zaroorat ho tum, kyunki tum meri zindagi ka part ho. 💖"
+            ];
+
+            // Get the message list container
+            const messageList = document.getElementById("message-list");
+            console.log(messageList);
+            // Clear previous messages
+            messageList.innerHTML = "";
+
+            // Add messages to the list
+            messages.forEach((message) => {
+                const p = document.createElement("p");
+                p.textContent = message;
+                messageList.appendChild(p);
+            });
+
+            // Show the card and blur the background
+            const messageCardContainer = document.getElementById("message-card-container");
+            messageCardContainer.classList.remove("hidden");
+            // document.getElementById("#main_card").classList.add("blurred");
+            // console.log(document.body);
+        }
+
+        function closeMessageCard() {
+            // Hide the card and remove blur
+            const messageCardContainer = document.getElementById("message-card-container");
+            console.log(messageCardContainer.classList);
+            messageCardContainer.classList.add("hidden");
+            // document.getElementById('#main_card').classList.remove("blurred");
+        }
+
+    </script>
+</body>
+
+</html>
