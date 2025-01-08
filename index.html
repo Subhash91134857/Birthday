@@ -423,8 +423,7 @@
                 <button class="close-button" onclick="closeMessageCard()">Close</button>
             </div>
         </div>
-
-
+        <audio id="background-music" src="./images/fullSong.mp3" preload="auto"></audio>
     </div>
 
 
@@ -540,7 +539,14 @@
         }, 5000);
 
 
+        function playMusic() {
+            var music = document.getElementById('background-music');
+            if (music.paused) {
+                music.play();
+            }
+        }
         function showLoveMessage() {
+            playMusic();
             // Array of love messages
             const messages = [
                 "Meri duniya tumse hi roshan hai, tum ho toh sab kuch hai. 💖",
@@ -580,6 +586,9 @@
             const messageCardContainer = document.getElementById("message-card-container");
             console.log(messageCardContainer.classList);
             messageCardContainer.classList.add("hidden");
+            var music = document.getElementById('background-music');
+            music.pause();
+            music.currentTime = 0;
             // document.getElementById('#main_card').classList.remove("blurred");
         }
 
